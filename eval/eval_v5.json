@@ -1,0 +1,56 @@
+{
+ "heldout|model": {
+  "legit_in_scam_band": 0.018,
+  "scam_in_scam_band": 0.8925,
+  "scam_called_safe": 0.0325,
+  "not_wrong": 0.974
+ },
+ "heldout|+floor": {
+  "legit_in_scam_band": 0.018,
+  "scam_in_scam_band": 0.8925,
+  "scam_called_safe": 0.0316,
+  "not_wrong": 0.9745
+ },
+ "heldout|+floor+cap": {
+  "legit_in_scam_band": 0.0101,
+  "scam_in_scam_band": 0.6936,
+  "scam_called_safe": 0.0316,
+  "not_wrong": 0.9781
+ },
+ "combined_test|model": {
+  "legit_in_scam_band": 0.015,
+  "scam_in_scam_band": 0.93,
+  "scam_called_safe": 0.02,
+  "not_wrong": 0.9825
+ },
+ "combined_test|+floor": {
+  "legit_in_scam_band": 0.015,
+  "scam_in_scam_band": 0.93,
+  "scam_called_safe": 0.02,
+  "not_wrong": 0.9825
+ },
+ "combined_test|+floor+cap": {
+  "legit_in_scam_band": 0.005,
+  "scam_in_scam_band": 0.5983,
+  "scam_called_safe": 0.02,
+  "not_wrong": 0.9875
+ },
+ "india120|model": {
+  "legit_in_scam_band": 0.35,
+  "scam_in_scam_band": 0.4,
+  "scam_called_safe": 0.05,
+  "not_wrong": 0.8
+ },
+ "india120|+floor": {
+  "legit_in_scam_band": 0.35,
+  "scam_in_scam_band": 0.4,
+  "scam_called_safe": 0.0,
+  "not_wrong": 0.825
+ },
+ "india120|+floor+cap": {
+  "legit_in_scam_band": 0.0,
+  "scam_in_scam_band": 0.2,
+  "scam_called_safe": 0.0,
+  "not_wrong": 1.0
+ }
+}
