@@ -247,7 +247,7 @@
     if (top.length) {
       res.appendChild(el('h3', null, t.loo));
       const chips = el('div', 'chips');
-      for (const a of top) chips.appendChild(el('span', 'chip', a.w + ' +' + (a.delta * 100).toFixed(0)));
+      for (const a of top) chips.appendChild(el('span', 'chip', (a.w.length > 30 ? a.w.slice(0, 28) + '\u2026' : a.w) + ' +' + (a.delta * 100).toFixed(0)));
       res.appendChild(chips);
     }
 
