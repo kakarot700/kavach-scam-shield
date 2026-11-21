@@ -21,6 +21,7 @@ Indians lose large sums every year to "digital arrest", fake KYC, parcel-customs
 4. **Safety layer (deterministic, `train/sig.py` and `app.js`):**
    - a *floor*: a known scam signal combined with pressure lifts a "genuine" score to at least "not sure";
    - a *cap*: a message with nothing to act on (no link, number, UPI ID or app) is held at "not sure" instead of "likely scam", which cuts false alarms on genuine messages.
+   - an *advisory* rule: a safety warning ("never share your OTP", "RBI never asks", "beware", "share na karein", "साझा न करें") with nothing to act on outside official sites (rbi.org.in, gov.in, dicgc.org.in, npci.org.in ...) and helplines (1930, 14448) is held at "not sure" at most. A warning that also asks you to reply, send or click, or carries any other link, number or UPI ID, is judged as usual.
 5. **Abstention by design:** the middle band lets the tool say "not sure" rather than confidently mislabel. A scam called "genuine" is the worst error, so the bands are tuned to keep that rare.
 
 The JavaScript feature code is a line-for-line port of the Python trainer; `tests/parity_test.py` checks they give identical scores.
@@ -36,6 +37,8 @@ Shipped configuration = model + floor + cap. "Not wrong" = a scam was not called
 | UI cases through the real page in headless Chrome | 17 | 17/17 | 0 | 12/17 exact | 0 |
 
 \* 3.2% on the held-out corpora, 2.0% on the second corpus. Model alone (before the safety layer) on the held-out set: accuracy 95.0%, ROC-AUC 0.988. All numbers are in `eval/`.
+
+**Advisory rule check (added 21 Nov 2026):** on a rebuilt 80/20 split of the same corpora, scams in "likely scam" 70.7% → 70.5%, scams called safe 3.1% → 3.1%, genuine called scam 0.9% → 0.9%. On 7,396 genuine Indian SMS, genuine called scam 2.1% → 2.0%. On 10 real RBI and bank awareness messages, 2 were called scam before and 0 after. The 120 Indian messages are unchanged.
 
 **Limitations, stated plainly:** on the Indian Hindi/Hinglish set the tool is cautious: it made no wrong calls, but only 1 in 5 scams lands in "likely scam"; most land in "not sure". Hindi training data is scarce and partly machine-translated, and that evaluation set is small and partly synthetic. The cap also holds back some real scams whose links were stripped in the source data. KAVACH is an aid to judgement, not a guarantee, and it does not check whether a link or number is live.
 
